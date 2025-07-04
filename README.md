@@ -52,9 +52,9 @@
 
 ---
 
-## 🚀 Getting Started
+## 🖥️ Run Locally (Step-by-Step)
 
-### 1. Clone the Repo
+### 1. Clone the Repository
 ```bash
 git clone https://github.com/Pawan-1809/weather-api-app.git
 cd weather-api-app
@@ -64,54 +64,64 @@ cd weather-api-app
 ```bash
 cd backend
 pip install -r requirements.txt
-# Set your OpenWeatherMap API key:
-# Windows:
-set OPENWEATHER_API_KEY=your_api_key_here
-# Linux/Mac:
-export OPENWEATHER_API_KEY=your_api_key_here
-# Run the server:
-uvicorn backend.main:app --reload
 ```
-API available at: `http://localhost:8000`
 
-### 3. Frontend Usage
-- Open `frontend/index.html` in your browser.
-- Search for any city to see real-time weather data.
+#### Set Your OpenWeatherMap API Key
+- Get a free API key from [OpenWeatherMap](https://openweathermap.org/api)
+- Set it as an environment variable:
+  - **Windows:**
+    ```bash
+    set OPENWEATHER_API_KEY=your_api_key_here
+    ```
+  - **Linux/Mac:**
+    ```bash
+    export OPENWEATHER_API_KEY=your_api_key_here
+    ```
 
----
+#### Start the FastAPI Server
+```bash
+uvicorn main:app --reload
+```
+- The API will be available at: [http://localhost:8000](http://localhost:8000)
 
-## ☁️ Deployment
+### 3. Frontend Setup
+- Open a new terminal window/tab.
+- Navigate to the frontend folder:
+  ```bash
+  cd ../frontend
+  ```
+- Open `index.html` in your browser (double-click or use Live Server extension in VSCode for best experience).
+- **Make sure the backend is running before searching for weather!**
 
-### Backend (Render/Railway/Fly.io)
-- Deploy `/backend` folder as a web service
-- Use `Procfile` and set `OPENWEATHER_API_KEY` in environment variables
-- Example start command: `uvicorn backend.main:app --host=0.0.0.0 --port=10000`
-
-### Frontend (Vercel/Netlify/GitHub Pages)
-- Deploy `/frontend` as a static site
-- **Update API URLs in `scripts.js` to point to your deployed backend!**
-
----
-
-## 🛠️ Tech Stack
-- FastAPI, Uvicorn, Requests
-- HTML5, CSS3 (Glassmorphism, Gradients, Animations)
-- JavaScript (ES6+), Canvas (Particles)
-- OpenWeatherMap API
-
----
-
-## 📖 API Endpoints
-- `/weather?city=CityName` — Get current weather
-- `/forecast?city=CityName` — Get 5-day forecast
-
----
-
-## 👨‍💻 Credits
-- **Pawan Kumar** — [@Pawan-1809](https://github.com/Pawan-1809)
-- UI/UX inspired by modern glassmorphism/cyberpunk trends
-- Powered by [OpenWeatherMap](https://openweathermap.org/)
+#### Update API URLs (if needed)
+- By default, the frontend fetches from `http://localhost:8000/weather` and `/forecast`.
+- If you change the backend port, update the URLs in `scripts.js` accordingly.
 
 ---
 
-**Enjoy your futuristic weather dashboard!** 
+## 🛠️ Troubleshooting
+- **ModuleNotFoundError:**
+  - Make sure you are in the correct directory (`backend`) when running the backend.
+  - Use `uvicorn main:app --reload` (not `backend.main:app`) if you are inside the `backend` folder.
+- **CORS errors:**
+  - The backend is set up with CORS enabled for local development.
+- **API key errors:**
+  - Double-check your OpenWeatherMap API key and that it is set as an environment variable.
+- **Frontend not updating:**
+  - Clear your browser cache or do a hard refresh (Ctrl+Shift+R).
+
+---
+
+## 🎨 Finishing Touches & Customization
+- **UI/UX:**
+  - The frontend uses glassmorphism and cyberpunk styles. Tweak `styles.css` for your own color palette or effects.
+- **API:**
+  - You can extend the backend to support more endpoints or data sources.
+- **Deployment:**
+  - See comments in `scripts.js` and the README for tips on deploying to Render, Railway, Vercel, or Netlify.
+- **Credits:**
+  - Built by [Pawan Kumar](https://github.com/Pawan-1809). Powered by [OpenWeatherMap](https://openweathermap.org/).
+
+---
+
+**Enjoy your futuristic weather dashboard! If you like this project, give it a ⭐ on GitHub!** 
