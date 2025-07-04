@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Weather Dashboard</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <nav class="navbar glass">
+        <div class="nav-title">WeatherX</div>
+        <ul class="nav-links">
+            <li><a href="#home" class="active">Home</a></li>
+            <li><a href="#dev" class="dev-link">Developer</a></li>
+        </ul>
+    </nav>
+    <div id="parallax-bg"></div>
+    <main class="main-flex center-flex" id="main-flex">
+        <section id="home" class="container home-section">
+            <h1 class="title">Weather Dashboard</h1>
+            <form id="search-form">
+                <input type="text" id="city-input" placeholder="Enter city..." autocomplete="off" required />
+                <button type="submit" id="search-btn">Search</button>
+            </form>
+            <div id="loading" class="loading hidden">
+                <div class="spinner"></div>
+            </div>
+            <section id="weather-card" class="weather-card glass hidden">
+                <!-- Weather info will be injected here -->
+            </section>
+            <button id="show-forecast-btn" class="show-forecast-btn hidden">Full Forecast</button>
+        </section>
+        <section id="forecast" class="forecast-cards right-forecast hidden">
+            <!-- 5-day forecast cards will be injected here -->
+        </section>
+    </main>
+    <footer class="footer">
+        <span>&copy; 2025 Pawan Kumar — WeatherX Dashboard</span>
+        <span class="dev-section">
+            &nbsp;| Made by <strong>Pawan Kumar</strong> <a href="https://github.com/Pawan-1809" target="_blank">@Pawan-1809</a>
+        </span>
+    </footer>
+    <canvas id="particles"></canvas>
+    <script src="scripts.js"></script>
+</body>
+</html>
