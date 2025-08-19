@@ -1,0 +1,19 @@
+services:
+  - type: web
+    name: weather-backend
+    env: python
+    buildCommand: pip install -r backend/requirements.txt
+    startCommand: uvicorn backend.main:app --host=0.0.0.0 --port=$PORT
+    envVars:
+      - key: OPENWEATHER_API_KEY
+        value: "your_openweathermap_api_key"
+    autoDeploy: true
+    plan: free
+    rootDir: backend
+
+  - type: static
+    name: weather-frontend
+    buildCommand: ""
+    staticPublishPath: frontend
+    plan: free
+    autoDeploy: true
